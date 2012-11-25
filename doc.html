@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+	<head>
+		<style type="text/css">
+			body{
+				margin:0 auto;
+				font-family: "微软雅黑",Georgia, Palatino, serif;
+				min-width: 900px;
+				font: 12px/normal "Consolas";
+				color: #333;
+			}
+			body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, button, textarea, p, blockquote, th, tdli, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, button, textarea, p, blockquote, th, td {
+				padding: 0;
+				margin: 0;
+				}
+			h1, h2, h3, h4, h5, h6, em, strong, b {
+				font-weight: bold;
+				font-size: 100%;
+				}	
+			a, a:hover {
+			text-decoration: none;
+			color: #333;
+			}
+			a, button {
+			cursor: pointer;
+			}
+
+			.f-clean-block:after{clear:both;display:block;visibility:hidden;height:0;overflow:hidden;content:".";}
+			.f-clean-block{zoom:1;}
+			.f-fleft{float: left}
+			.f-fright{float: right}
+			.f-inlineblock {display: inline-block;}
+			.f-fw0 {font-weight: normal;}
+			.menu-nav{
+				padding: 0;
+				margin-top: 20px;
+				font-size: 14px;
+				margin-bottom: 1em;
+			}
+			.menu-nav li {
+				position: relative;
+				list-style: none;
+				height:2em;
+				}
+			.menu-nav li, .menu-nav li a {
+				float: left;
+			}
+			.menu-nav li a:visited {
+				color: #DDD;
+			}
+			.menu-nav li a, .menu-nav li a:hover {
+				color: #DDD;
+				text-shadow: 1px 0 #6D7880;
+				font-family: "Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体";
+			}
+			.menu-nav li a {
+				padding: 0.3em 20px 0.2em;
+				text-align: center;
+				height: 1.5em;
+				line-height: 1.5em;
+			}
+			.menu-nav .selected,.menu-api .selected{
+				color: #DDD;
+				background-color: black;
+				border-radius: 5px;
+				opacity: 0.5;
+				box-shadow: 0px 5px 10px #333;
+			}
+			.menu-nav .selected-tag{
+			    width: 0;
+			    height: 0;
+			    position: absolute;
+				top: 28px;
+				right: 32px;
+			    border-left: 5px solid transparent;
+			    border-right: 5px solid transparent;
+			    border-bottom: 10px solid white;
+
+			}
+
+			.menu-api{
+				padding: 0;
+				font-size: 14px;
+				line-height: 25px;
+			}
+			.menu-filehd {
+				height: 68px;
+				line-height: 68px;
+				background-color: #F8F8F8;
+				font-size: 14px;
+				font-family: "Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体";
+			}
+			.menu-filehd .apicat {
+				float: left;
+				height: 68px;
+				list-style: none;
+			}
+			.menu-filehd .apihd {
+				font-size: 28px;
+				padding: 0;
+				margin: 0;
+				color: #1D1D1D;
+				}
+			.menu-filehd .apicat .lbl {
+				padding: 0 10px 0 13px;
+				color: #050505;
+				}
+			.menu-filehd .apicat a {
+				height: 25px;
+				line-height: 25px;
+				margin-top: 22px;
+				}
+			
+			/**item-box begin**/
+			.item-box-list{
+
+			}
+			.item-box{
+				border: 1px solid #DDD;
+				padding: 10px;
+				float: left;
+				margin-right: 13px;
+				margin-bottom: 20px;
+				width: 200px;
+				position: relative;
+				list-style: none; 
+				border-top-left-radius: 30px;
+			}
+			.item-box .thumbnail{
+
+			}
+			.item-box .thumbnail:hover img {
+				border: 1px solid #CCC;
+				}
+			.item-box .thumbnail img {
+				border: 1px solid white;
+				}
+			.item-box .thumbnail a{
+				text-decoration: none;
+				color: #333;
+			}
+			.item-box .item-title{
+				margin: 5px 0;
+				height: 16px;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			.item-box .item-title a{ 
+
+			}
+			.item-box .item-desc{
+
+			}
+
+			.g-page{
+				
+			}
+			.g-top{
+				border-bottom:1px solid #284156;
+				background-color:#15212c;opacity: 0.8; 
+				height:7px;
+				overflow:hidden
+			}
+			.g-banner{
+				background-color:#15212c;
+				opacity: 0.8; 
+
+			}
+			.g_single_content{
+				width:940px;
+				margin:0 auto;
+			}
+			.g-doc-header{
+				width:940px;
+				margin:0 auto;
+				background-size:350px 40px;
+				background-position:left bottom;
+			}
+		</style>
+		<script type="text/javascript">
+			function apiDocController ($scope) {
+				//初始化菜单信息
+				$scope.menuList = [{name:"首页"},{name:"规范"},{name:"教程"}];
+			}
+		</script>
+	</head>
+	<body ng-controller="apiDocController">
+		<horizotal-nav-menu menuList="menuList"></horizotal-nav-menu>
+		<div class="g-page">
+			<div class="g-top">&nbsp;</div>
+			<div class="g-banner">
+				<div class="g-doc-header f-clean-block">
+					<a class="f-fright f-clean-block">
+						<div class="doc-logo"></div>
+					</a>
+					<ul class="menu-nav f-fleft"> 
+						<li><a href="/">首页</a></li> 
+						<li class="selected">
+							<a href="/document/">文档</a><span class="f-ib w-horn">&nbsp;</span>
+							<span class="selected-tag"></span>
+						</li> 
+						<li><a href="/course/">教程</a><span class="f-ib w-horn">&nbsp;</span></li> 
+						<li><a href="/code/">代码</a><span class="f-ib w-horn">&nbsp;</span></li> 
+						<li><a href="/case/index.html">案例</a><span class="f-ib w-horn">&nbsp;</span></li> 
+					</ul>
+				</div>
+			</div>
+			<div class="doc_guide_menu">
+				<div class="menu-filehd"> 
+					<div class="g-doc-header"> 
+						<h3 class="f-fw0 f-fleft apihd">教 程：</h3> 
+						<ul class="menu-api f-fleft"> 
+							<li class="apicat"><a href="/course/quirkStart" class="f-inlineblock ">
+								<span class="f-inlineblock lbl">快速入门</span><span class="f-inlineblock btnl">&nbsp;</span></a>
+							</li>
+							<li class="apicat"><a href="/course/standard/index" class="f-inlineblock ">
+								<span class="f-inlineblock lbl">规 范</span><span class="f-inlineblock btnl">&nbsp;</span></a>
+							</li> 
+							<li class="apicat">
+								<a href="/course/component/index.html" class="f-inlineblock"><span class="f-inlineblock lbl">MVC框架</span><span class="f-inlineblock btnl">&nbsp;</span></a>
+							</li> 
+							<li class="apicat">
+								<a href="/course/component/index.html" class="f-inlineblock selected"><span class="f-inlineblock selected">UI 控 件</span><span class="f-inlineblock btnl">&nbsp;</span></a>
+							</li> 
+							<li class="apicat">
+								<a href="/course/tools/index.html" class="f-inlineblock ">
+								<span class="f-inlineblock lbl">工 具</span><span class="f-inlineblock btnl">&nbsp;</span></a>
+							</li> 
+							<li class="apicat">
+								<a href="/course/topic/index.html" class="f-inlineblock "><span class="f-inlineblock lbl">专 题</span><span class="f-inlineblock btnl">&nbsp;</span></a>
+							</li> 
+							<li class="apicat">
+								<a href="/faq/index" class="f-inlineblock"><span class="f-inlineblock lbl">常见问题</span><span class="f-inlineblock btnl">&nbsp;</span></a>
+							</li> 
+						</ul> 
+					</div> 
+				</div>
+			</div>
+			<div class="g_single_content">
+				<div>
+					<ul class="item-box-list f-clean-block" id="componentcse">  
+						<li class="item-box "m-comcse> 
+							<a class="thumbnail" href="">
+								<img src="images/component-1.png">
+							</a>
+							<h4 class="item-title"><a href="">组件名称</a></h4> 
+							<p class="item-desc">在此区域展示组件简单描述信息</p> 
+							<div class="cover">&nbsp;</div> 
+							<a class="f-innerblock w-link" href="/course/component/util/suggest/">&nbsp;</a>
+							<a class="f-innerblock w-magnifying" href="#">&nbsp;</a> 
+						</li> 
+						
+						<li class="item-box "m-comcse> 
+							<a class="thumbnail" href="">
+								<img src="images/component-1.png">
+							</a>
+							<h4 class="item-title"><a href="">suggest - 建议提示控件</a></h4> 
+							<p class="item-desc"></p> 
+							<div class="cover">&nbsp;</div> 
+							<a class="f-innerblock w-link" href="/course/component/util/suggest/">&nbsp;</a>
+							<a class="f-innerblock w-magnifying" href="#">&nbsp;</a> 
+						</li> 
+						
+						<li class="item-box "m-comcse> 
+							<a class="thumbnail" href="">
+								<img src="images/component-1.png">
+							</a>
+							<h4 class="item-title"><a href="">suggest - 建议提示控件</a></h4> 
+							<p class="item-desc"></p> 
+							<div class="cover">&nbsp;</div> 
+							<a class="f-innerblock w-link" href="/course/component/util/suggest/">&nbsp;</a>
+							<a class="f-innerblock w-magnifying" href="#">&nbsp;</a> 
+						</li> 
+						
+						<li class="item-box "m-comcse> 
+							<a class="thumbnail" href="">
+								<img src="images/component-1.png">
+							</a>
+							<h4 class="item-title"><a href="">suggest - 建议提示控件</a></h4> 
+							<p class="item-desc"></p> 
+							<div class="cover">&nbsp;</div> 
+							<a class="f-innerblock w-link" href="/course/component/util/suggest/">&nbsp;</a>
+							<a class="f-innerblock w-magnifying" href="#">&nbsp;</a> 
+						</li> 
+						
+						
+						
+					</ul>	
+				</div>		
+			</div>
+		</div>
+		<SCRIPT TYPE="text/javascript" src="common-lib/angular/angular.js"></SCRIPT>
+		<script charset="utf-8" id="seajsnode" src="sea-modules/seajs/1.2.1/sea.js"></script>
+		<script charset="utf-8"  type="text/javascript" src="sea-modules/config.js"></script>
+		<script>
+		  seajs.use(['$','angularModule'], function($,angularModule){
+		  	$(function() {
+		  		//初始化依赖的eviewModules
+		  		seajs.use(['angularMenu'],function  (angularMenu) {
+		  			angularMenu.init();
+		  			console.log("1111111111");
+				    angularModule.angular.bootstrap(document,["sibo.mvc","ui"]);
+		  		})
+		  	});
+		  });
+		</script>
+	</body>
+</html>
